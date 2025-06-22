@@ -117,7 +117,7 @@ body {
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
-  border: 1px solid #ffffff;
+  border: 1px solid #bbb;
   border-radius: 10px;
   padding: 0;
   font-size: 0;
@@ -151,6 +151,13 @@ body {
 
 #interpolation-image-wrapper {
   width: 100%;
+}
+#interpolation-image-wrapper img {
+  border-radius: 5px;
+}
+
+#interpolation-image-wrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
   gap: 0.5rem;
@@ -168,7 +175,6 @@ body {
 }
 
 
-/* Make slider narrower and centered */
 #interpolation-slider {
   width: 100%;             /* Adjust slider length */
   margin: 1rem auto 0 auto; /* Top auto-centered */

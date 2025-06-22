@@ -27,15 +27,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
-  
+
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <!-- <script defer src="./assets/js/fontawesome.all.min.js"></script> -->
   <script src="./assets/js/bulma-carousel.min.js"></script>
   <script src="./assets/js/bulma-slider.min.js"></script>
   <script src="./assets/js/index.js"></script>
 
-  <style type="text/css">
+  <!-- <style type="text/css">
     .btn {
         color:black;
         text-decoration:none;
@@ -148,57 +147,57 @@
     @media only screen and (max-width: 930px) {
         .content { width:100% !important; }
     }
-  </style>
-  <script type="text/javascript">
-    var curr_idx = 0;
-    var num_tables = 6;
-    function move(direction) {
-        if (curr_idx == 0 && direction < 0) {
-      move(num_tables - 1);
-      return;
-        }
-        if (curr_idx == num_tables - 1 && direction > 0) {
-      move(-1 * (num_tables - 1));
-      return;
-        }
-        tables = document.getElementsByClassName("carousel_table");
-        for(var i = 0; i < tables.length; i++) {
-      tables[i].style.left = (parseInt(tables[i].style.left.substring(0, tables[i].style.left.length - 2)) - direction * 700).toString() + "px";
-        }
-        curr_idx += direction;
-    }
-    function hideOverlay(classname) {
-        document.getElementById(classname + "_overlay").style.opacity = "0";
-    }
-    function activate(classname, idx, max) {
-        document.getElementById(classname + "_overlay").style.opacity = "1";
-        setTimeout(function() {
-      for(var i = 1; i <= max; i++) {
-          document.getElementById(classname + "_" + i.toString()).className = "";
-          document.getElementById(classname + "_text_" + i.toString()).className = "";
+    </style>
+    <script type="text/javascript">
+      var curr_idx = 0;
+      var num_tables = 6;
+      function move(direction) {
+          if (curr_idx == 0 && direction < 0) {
+        move(num_tables - 1);
+        return;
+          }
+          if (curr_idx == num_tables - 1 && direction > 0) {
+        move(-1 * (num_tables - 1));
+        return;
+          }
+          tables = document.getElementsByClassName("carousel_table");
+          for(var i = 0; i < tables.length; i++) {
+        tables[i].style.left = (parseInt(tables[i].style.left.substring(0, tables[i].style.left.length - 2)) - direction * 700).toString() + "px";
+          }
+          curr_idx += direction;
       }
-      document.getElementById(classname + "_" + idx.toString()).className = "active";
-      document.getElementById(classname + "_text_" + idx.toString()).className = "active";
-      setTimeout(hideOverlay, 200, classname);
-        }, 200);
-    }
-    var moving = true;
-    var stopCounter = 0;
-    function autoMove(currCounter) {
-        if(moving && currCounter >= stopCounter) {
-      move(1);
-            setTimeout(autoMove, 5000, stopCounter);
+      function hideOverlay(classname) {
+          document.getElementById(classname + "_overlay").style.opacity = "0";
+      }
+      function activate(classname, idx, max) {
+          document.getElementById(classname + "_overlay").style.opacity = "1";
+          setTimeout(function() {
+        for(var i = 1; i <= max; i++) {
+            document.getElementById(classname + "_" + i.toString()).className = "";
+            document.getElementById(classname + "_text_" + i.toString()).className = "";
         }
-    }
-    function beginMoving() {
-        moving = true;
-        setTimeout(autoMove, 5000, stopCounter);
-    }
-    function stopMoving() {
-        moving = false;
-        stopCounter++;
-    }
-  </script>
+        document.getElementById(classname + "_" + idx.toString()).className = "active";
+        document.getElementById(classname + "_text_" + idx.toString()).className = "active";
+        setTimeout(hideOverlay, 200, classname);
+          }, 200);
+      }
+      var moving = true;
+      var stopCounter = 0;
+      function autoMove(currCounter) {
+          if(moving && currCounter >= stopCounter) {
+        move(1);
+              setTimeout(autoMove, 5000, stopCounter);
+          }
+      }
+      function beginMoving() {
+          moving = true;
+          setTimeout(autoMove, 5000, stopCounter);
+      }
+      function stopMoving() {
+          moving = false;
+          stopCounter++;
+      }
+    </script> -->
 </head>
 
 
@@ -266,7 +265,7 @@
             </a>
           </span>
           
-          <!-- Demo Link. (TBD) -->
+          <!-- Demo Link. -->
           <span class="link-block">
             <a href="https://colab.research.google.com/drive/1sjLWKPIXi961KPV-t1ugIdwaF7bdBjt7?usp=sharing"
                 class="external-link button is-normal is-rounded is-dark">
@@ -289,7 +288,7 @@
 <section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
+      <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -314,7 +313,7 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
+      <div class="column is-four-fifths">
         <h2 class="title is-3">Background</h2>
           <div class="content has-text-justified">
             
@@ -346,11 +345,11 @@
 <section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
+      <div class="column is-four-fifths">
         <h2 class="title is-3">Our Method: Single Layer Unlearning Gradient</h2>
           <div class="content has-text-justified">
             <img src="./assets/project/slug/slug-framework.png"
-                 class="framework-image"
+                 class="interpolation-image"
                  alt="Framework image."/>
             <p>Fig. 1: The unlearning framework of our proposed method, Single Layer Unlearning Gradient (SLUG).</p>
             <br>
@@ -373,7 +372,7 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
+      <div class="column is-four-fifths">
         <h2 class="title is-3">How does Single Layer Update Work?</h2>
           <div class="content has-text-justified">
             Our extensive analysis on CLIP zero-shot classification demonstrate that a single unlearning 
@@ -382,7 +381,7 @@
             zero-shot classification accuracy close to that of the original CLIP model.
             <br><br>
             <img src="./assets/project/slug/analyze.png"
-                 class="analysis-image"
+                 class="interpolation-image"
                  alt="Teaser image."/>
             <p>Fig. 2: Pareto-fronts and step-size analysis of one-step update the vision/language parts of CLIP.</p>
             <br>
@@ -391,14 +390,59 @@
               in terms of high concept importance and low forget-retain gradient alignment, can achieve good unlearning and utility retention.
             </p>
           </div>
+        
+        <h2 class="title is-4">Single Layer Update with different Step-sizes</h2>
+          <div class="content has-text-justified">
+            Intuitively, a larger step-size incurs larger update over the model.
+            Here, we demonstrate the effect of updating single layer with different step-sizes for unlearning "<i>Elon Musk</i>" on <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1"> Stable Diffusion-v2.1</a>.
+            <br>
+            <br>
+            Use the slider below to adjust the step size from 0 to 5.
+            This allows you to observe the effects of increasing unlearning strength on image generation by Stable Diffusion. 
+            The model was progressively unlearned with respect to the following prompts: <i>"A portrait photo of Elon Musk", "Elon Musk sitting in the car", "A portrait photo of Mark Zuckerberg",
+            "A portrait photo of Taylor Swift", and "A sea turtle in the ocean".</i>
+            <br><br>
+            
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column is-3 has-text-centered">
+                <img src="./assets/project/stepsize/init_elon.png"
+                    class="interpolation-image"
+                    alt="Interpolate start reference image."/>
+                <p>Pre-unlearning</p>
+              </div>
+              <div class="column interpolation-video-column">
+                <div id="interpolation-image-wrapper">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info"
+                      id="interpolation-slider"
+                      step="1" min="0" max="100" value="0" type="range">
+                <p>Unlearn "Elon Musk" with different step-sizes</p>
+              </div>
+              <div class="column is-3 has-text-centered">
+                <img src="./assets/project/stepsize/end_elon.png"
+                    class="interpolation-image"
+                    alt="Interpolation end reference image."/>
+                <p class="is-bold">Over unlearning</p>
+              </div>        
+            </div>
+
+            <p>
+              As the step size increases, you can observe how the generated images, even those associated with non-targeted concepts, gradually diverge from their original meanings, indicating 
+              <b> over-editing (over-unlearning).</b>
+              To select an appropriate step size, we employ binary search to balance the degree of unlearning with the retention of overall model utility during the update process.
+            </p>
+          </div>     
+        
       </div>
     </div>
 </section>
 
+
 <section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
+      <div class="column is-four-fifths">
         <h2 class="title is-3">Main Results</h2>
           <div class="content has-text-justified">
             Despite being extremely efficient, SLUG achieves effective unlearning while maintaining a good balance with model utility retention.
@@ -411,7 +455,7 @@
               <div class="column">
                 <div class="content has-text-justified">
                   <img src="./assets/project/slug/clip-0.png"
-                      class="clip-image"
+                      class="interpolation-image"
                       alt="CLIP cosine similarity matrix."/>
                   <p>Fig.3: CLIP original image-text conine similarity matrix.</p>
                 </div>
@@ -420,7 +464,7 @@
               <div class="column">
                 <div class="content has-text-justified">
                   <img src="./assets/project/slug/clip-1.png"
-                      class="clip-image"
+                      class="interpolation-image"
                       alt="CLIP cosine similarity matrix."/>
                   <p>
                     Fig.4: Unlearning "<i>Elon Musk</i>".
@@ -431,7 +475,7 @@
               <div class="column">
                 <div class="content has-text-justified">
                   <img src="./assets/project/slug/clip-2.png"
-                      class="clip-image"
+                      class="interpolation-image"
                       alt="CLIP cosine similarity matrix."/>
                   <p>
                     Fig.5: Unlearning "<i>Elon Musk</i>" and "<i>Mark Zukerburg</i>".
@@ -448,7 +492,7 @@
           <h3 class="title is-4">Examples on Stable Diffusion Image Generation</h3>
           <div class="content has-text-justified">
             <img src="./assets/project/slug/sd-example-copyright.png"
-                class="sd-image"
+                class="interpolation-image"
                 alt="Stable Diffusion example: copyright."/>
             <br>
             <p>Fig. 6: Unlearning copyright-protected intellectual property ("<i>Mickey Mouse</i>" and "<i>Iron Man</i>") from <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1"> Stable Diffusion-v2.1</a> model.</p>
@@ -462,14 +506,14 @@
           <h3 class="title is-4">Examples on Vision-Language Models</h3>
           <div class="content has-text-justified">
             <img src="./assets/project/slug/vlm-example-1.png"
-                class="vlm-image"
+                class="interpolation-image"
                 alt="Vision-Language Model."/>
                 <p>
                   Fig. 7: Unlearning the celebrity example "<i>Elon Musk</i>" from <a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf"> LLaVA-v1.5-7B </a> model.
                 </p>                
             <br>
             <img src="./assets/project/slug/vlm-example-2.png"
-                class="vlm-image"
+                class="interpolation-image"
                 alt="Vision-Language Model."/>
                 <p>
                   Fig. 8: Unlearning the celebrity example  "<i>Taylor Swift</i>" from <a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf"> LLaVA-v1.5-7B </a> model.
@@ -497,37 +541,11 @@
 </section>
 
 
-
-<!-- <section class="section hero is-light" id="BibTeX">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">BibTeX</h2>
-          <div class="content has-text-justified">
-            Our extensive analysis on CLIP zero-shot classification demonstrate that a single unlearning 
-            update on one layer, which is identified by our <i>layer importance</i> and <i>gradient alignment</i> metrics, 
-            is sufficient to make the model forget a targeted concept while preserving 
-            zero-shot classification accuracy close to that of the original CLIP model.
-            <br><br>
-            <img src="./assets/project/slug/analyze.png"
-                 class="interpolation-image"
-                 alt="Teaser image."/>
-            <p>Fig. 2: Pareto-fronts and step-size analysis of one-step update the vision/language parts of CLIP.</p>
-            <br>
-            <p>
-              <b>Main takeaway:</b> with a properly selected unlearning step size, one-step update on one of the pareto-optimal layers, 
-              in terms of high concept importance and low forget-retain gradient alignment, can achieve good unlearning and utility retention.
-            </p>
-          </div>
-      </div>
-    </div>
-</section> -->
-
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
-        <div class="column is-full-width">
+        <div class="column is-four-fifths">
           <h2 class="title">BibTeX</h2>
           <div class="content has-text-justified">
             If you find our work helpful for your research, please consider citing us!
@@ -536,7 +554,7 @@
     </div>
   </div>  
     <br>
-    <pre style="display: inline-block;"><code>
+    <pre style="display: inline-block; text-align: left;"><code>
       @article{cai2024unlearning,
         title={Unlearning Targeted Information via Single Layer Unlearning Gradient},
         author={Cai, Zikui and Tan, Yaoteng and Asif, M Salman},
