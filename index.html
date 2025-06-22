@@ -27,12 +27,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./assets/css/index.css">
-
+  
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./assets/js/fontawesome.all.min.js"></script>
+  <!-- <script defer src="./assets/js/fontawesome.all.min.js"></script> -->
   <script src="./assets/js/bulma-carousel.min.js"></script>
   <script src="./assets/js/bulma-slider.min.js"></script>
+  <script src="./assets/js/index.js"></script>
 
   <style type="text/css">
     .btn {
@@ -316,10 +317,6 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Background</h2>
           <div class="content has-text-justified">
-            <!-- <img src="./assets/project/slug/background.png"
-                 class="interpolation-image"
-                 alt="background image."/>
-            <br><br> -->
             
             <p> <b>Modern Generative AI</b> raises significant concerns, including privacy violations of celebrities, 
               copyright-infringing content generation, artistic style plagiarism, and the creation of unsafe-for-work content. 
@@ -394,6 +391,49 @@
               in terms of high concept importance and low forget-retain gradient alignment, can achieve good unlearning and utility retention.
             </p>
           </div>
+
+        <h2 class="title is-4">Single Layer Update with different Step-sizes</h2>
+          <div class="content has-text-justified">
+            Intuitively, a larger step-size incurs larger update over the model.
+            Here, we demonstrate the effect of updating single layer with different step-sizes for unlearning "<i>Elon Musk</i>" on <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1"> Stable Diffusion-v2.1</a>.
+            <br>
+            <br>
+            Use the slider below to adjust the step size from 0 to 5.
+            This allows you to observe the effects of increasing unlearning strength on image generation by Stable Diffusion. 
+            The model was progressively unlearned with respect to the following prompts: <i>"A portrait photo of Elon Musk", "Elon Musk sitting in the car", "A portrait photo of Mark Zuckerberg",
+            "A portrait photo of Taylor Swift", and "A sea turtle in the ocean".</i>
+            <br><br>
+            
+            <div class="columns is-vcentered interpolation-panel">
+              <div class="column is-3 has-text-centered">
+                <img src="./assets/project/stepsize/init_elon.png"
+                    class="interpolation-image"
+                    alt="Interpolate start reference image."/>
+                <p>Pre-unlearning</p>
+              </div>
+              <div class="column interpolation-video-column">
+                <div id="interpolation-image-wrapper">
+                  Loading...
+                </div>
+                <input class="slider is-fullwidth is-large is-info"
+                      id="interpolation-slider"
+                      step="1" min="0" max="100" value="0" type="range">
+                <p>Unlearn "Elon Musk" with different step-sizes</p>
+              </div>
+              <div class="column is-3 has-text-centered">
+                <img src="./assets/project/stepsize/end_elon.png"
+                    class="interpolation-image"
+                    alt="Interpolation end reference image."/>
+                <p class="is-bold">Over unlearning</p>
+              </div>        
+            </div>
+
+            <p>
+              As the step size increases, you can observe how the generated images, even those associated with non-targeted concepts, gradually diverge from their original meanings, indicating 
+              <b> over-editing (over-unlearning).</b>
+              To select an appropriate step size, we employ binary search to balance the degree of unlearning with the retention of overall model utility during the update process.
+            </p>
+          </div> 
       </div>
     </div>
 </section>
@@ -500,32 +540,6 @@
     </div>
 </section>
 
-
-
-<!-- <section class="section hero is-light" id="BibTeX">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">BibTeX</h2>
-          <div class="content has-text-justified">
-            Our extensive analysis on CLIP zero-shot classification demonstrate that a single unlearning 
-            update on one layer, which is identified by our <i>layer importance</i> and <i>gradient alignment</i> metrics, 
-            is sufficient to make the model forget a targeted concept while preserving 
-            zero-shot classification accuracy close to that of the original CLIP model.
-            <br><br>
-            <img src="./assets/project/slug/analyze.png"
-                 class="interpolation-image"
-                 alt="Teaser image."/>
-            <p>Fig. 2: Pareto-fronts and step-size analysis of one-step update the vision/language parts of CLIP.</p>
-            <br>
-            <p>
-              <b>Main takeaway:</b> with a properly selected unlearning step size, one-step update on one of the pareto-optimal layers, 
-              in terms of high concept importance and low forget-retain gradient alignment, can achieve good unlearning and utility retention.
-            </p>
-          </div>
-      </div>
-    </div>
-</section> -->
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
