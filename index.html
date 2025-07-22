@@ -47,8 +47,8 @@
         <div class="column has-text-centered">
           <h1 class="title is-2 publication-title">Targeted Unlearning with Single Layer Unlearning Gradient</h1>
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><a href="https://zikuicai.github.io/">Zikui Cai</a><sup>1,2</sup>,</span>
-            <span class="author-block"><a href="https://ytengtan.github.io/">Yaoteng Tan</a><sup>1</sup>,</span>
+            <span class="author-block"><sup>*</sup><a href="https://zikuicai.github.io/">Zikui Cai</a><sup>1,2</sup>,</span>
+            <span class="author-block"><sup>*</sup><a href="https://ytengtan.github.io/">Yaoteng Tan</a><sup>1</sup>,</span>
             <span class="author-block"><a href="https://intra.ece.ucr.edu/~sasif/">M. Salman Asif</a><sup>1</sup></span>
           </div>
 
@@ -57,13 +57,13 @@
             <span class="author-block"><sup>2</sup>University of Maryland, College Park</span>
           </div>
           
-          <!-- <div class="is-size-6 publication-authors">
+          <div class="is-size-6 publication-authors">
             <span class="author-block">
-              <sup>*</sup>Equal contribution; 
-              <sup>⚑</sup>Project lead; 
-              <sup>†</sup>Corresponding authors.
+              <sup>*</sup>Equal contribution 
+              <!-- <sup>⚑</sup>Project lead; 
+              <sup>†</sup>Corresponding authors. -->
             </span>
-          </div> -->
+          </div>
 
         </div>
       </div>
@@ -101,16 +101,28 @@
             </a>
           </span>
           
+          <!-- Poster Link. -->
+          <span class="link-block">
+            <a href="https://icml.cc/media/PosterPDFs/ICML%202025/46379.png?t=1750963502.1914573"
+                class="external-link button is-normal is-rounded is-dark">
+                <span class="icon">
+                  <i class="fa fa-image"></i>
+                </span>
+              <span>Poster</span>
+            </a>
+          </span>  
+
+
           <!-- Demo Link. -->
           <span class="link-block">
             <a href="https://colab.research.google.com/drive/1sjLWKPIXi961KPV-t1ugIdwaF7bdBjt7?usp=sharing"
                 class="external-link button is-normal is-rounded is-dark">
                 <span class="icon">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg" alt="colab Logo">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/archive/d/d0/20221103151430%21Google_Colaboratory_SVG_Logo.svg" alt="colab Logo">
                 </span>
               <span>Demo</span>
             </a>
-          </span>
+          </span>        
 
         </div>
       </div>
@@ -124,7 +136,7 @@
 <section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-five-fifths">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -146,10 +158,10 @@
 </section>
 
 
-<section class="section hero is-light">
+<!-- <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-five-fifths">
         <h2 class="title is-3">Background</h2>
           <div class="content has-text-justified">
             
@@ -175,19 +187,24 @@
           </div>
       </div>
     </div>
-</section>
+</section> -->
 
 
 <section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Our Method: Single Layer Unlearning Gradient</h2>
+      <div class="column is-five-fifths">
+          <h2 class="title is-3">
+            Single Layer Unlearning Gradient (SLUG
+            <img src="assets/slug_icon.png" alt="slug icon" style="height: 1em; vertical-align: middle;">
+            )
+          </h2>
           <div class="content has-text-justified">
-            <img src="./assets/project/slug/slug-framework.png"
-                 class="interpolation-image"
-                 alt="Framework image."/>
-            <p>Fig. 1: The unlearning framework of our proposed method, Single Layer Unlearning Gradient (SLUG).</p>
+            <img src="./assets/project/slug/slug-framework.svg"
+                class="interpolation-image"
+                alt="Framework image."/>
+            <div class="columns is-centered has-text-centered">
+              <p>Fig. 1: The unlearning framework of our proposed method, Single Layer Unlearning Gradient (SLUG).</p></div>
             <br>
             <p>
               Given an unlearning query, such as removing an identity like "<i>Elon Musk</i>", 
@@ -196,7 +213,7 @@
               Using these datasets, we calculate and store the model gradients. 
               Based on these gradients, we identify the important layers to update for unlearning. 
               We then take a step along the forget gradients of a single layer and evaluate the model's unlearning performance. 
-              To determine a suitable step size λ, we employ a binary search. 
+              To determine a suitable step-size (λ), we employ a binary search. 
               After unlearning, the specified concepts are effectively erased while retaining the model's overall utility.
             </p>
           </div>
@@ -208,7 +225,7 @@
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <div class="column is-five-fifths">
         <h2 class="title is-3">How does Single Layer Update Work?</h2>
           <div class="content has-text-justified">
             Our extensive analysis on CLIP zero-shot classification demonstrate that a single unlearning 
@@ -216,36 +233,38 @@
             is sufficient to make the model forget a targeted concept while preserving 
             zero-shot classification accuracy close to that of the original CLIP model.
             <br><br>
-            <img src="./assets/project/slug/analyze.png"
+            <img src="./assets/project/slug/analyze.svg"
                  class="interpolation-image"
                  alt="Teaser image."/>
-            <p>Fig. 2: Pareto-fronts and step-size analysis of one-step update the vision/language parts of CLIP.</p>
+            <div class="columns is-centered has-text-centered">
+            <p>Fig. 2: Pareto-fronts and step-size analysis of one-step update the vision/language parts of CLIP.</p></div>
             <br>
             <p>
-              <b>Main takeaway:</b> with a properly selected unlearning step size, one-step update on one of the pareto-optimal layers, 
+              <b>Main takeaway:</b> with a properly selected unlearning step-size (λ), one-step update on one of the pareto-optimal layers, 
               in terms of high concept importance and low forget-retain gradient alignment, can achieve good unlearning and utility retention.
             </p>
           </div>
         
-        <h2 class="title is-4">Single Layer Update with different Step-sizes</h2>
+        <h2 class="title is-4">Single layer update with different step-sizes</h2>
           <div class="content has-text-justified">
-            Intuitively, a larger step-size incurs larger update over the model.
+            Intuitively, a larger step-size (λ) incurs larger update over the model.
             Here, we demonstrate the effect of updating single layer with different step-sizes for unlearning "<i>Elon Musk</i>" on <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1"> Stable Diffusion-v2.1</a>.
             <br>
             <br>
-            <b>Use the slider below to adjust the step size from 0 to 5,</b>
-            where you can observe images generated by the Stable Diffusion unlearned to varying degrees, using prompts:
+            <b>Use the slider below to adjust the step-size (λ) from 0 to 1.5, with an interval of 0.1,</b>
+            where you can observe images generated by the Stable Diffusion unlearned to varying degrees, on prompts that are related to the target and non-target concepts:
             <i>"A portrait photo of Elon Musk", "Elon Musk sitting in the car", "A portrait photo of Mark Zuckerberg",
             "A portrait photo of Taylor Swift", and "A sea turtle in the ocean".</i>
             <br><br>
             
             <div class="columns is-vcentered interpolation-panel">
-              <div class="column is-3 has-text-centered">
+              <!-- <div class="column is-3 has-text-centered">
                 <img src="./assets/project/stepsize/init_elon.png"
                     class="interpolation-image"
                     alt="Interpolate start reference image."/>
                 <p>Pre-unlearning</p>
-              </div>
+              </div> -->
+
               <div class="column interpolation-video-column">
                 <div id="interpolation-image-wrapper">
                   Loading...
@@ -253,20 +272,20 @@
                 <input class="slider is-fullwidth is-large is-info"
                       id="interpolation-slider"
                       step="1" min="0" max="100" value="0" type="range">
-                <p>Unlearn "Elon Musk" with different step-sizes</p>
+                <div class="columns is-centered has-text-centered">
+                <p>Unlearn "Elon Musk" on Stable Diffusion with increased step-sizes</p></div>
               </div>
-              <div class="column is-3 has-text-centered">
+
+              <!-- <div class="column is-3 has-text-centered">
                 <img src="./assets/project/stepsize/end_elon.png"
                     class="interpolation-image"
                     alt="Interpolation end reference image."/>
-                <p class="is-bold">Over unlearning</p>
-              </div>        
+                <p class="is-bold">Post-unlearning</p>
+              </div>         -->
             </div>
 
             <p>
-              As the step size increases, you can observe how the generated images, even those associated with non-targeted concepts, gradually diverge from their original meanings, indicating 
-              <b> over-editing (over-unlearning).</b>
-              To select an appropriate step size, we employ binary search to balance the degree of unlearning with the retention of overall model utility during the update process.
+              To select an appropriate step-size (λ), we employ <b>binary search</b> to balance the degree of unlearning with the retention of overall model utility during the update process.
             </p>
           </div>     
         
@@ -278,8 +297,8 @@
 <section class="section hero">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Main Results</h2>
+      <div class="column is-five-fifths">
+        <h2 class="title is-3">Sample Results</h2>
           <div class="content has-text-justified">
             Despite being extremely efficient, SLUG achieves effective unlearning while maintaining a good balance with model utility retention.
             Besides, SLUG is scalable across different foundation models for different tasks (e.g., CLIP, Stable Diffusion, VLMs) 
@@ -290,7 +309,7 @@
             <div class="columns is-centered">
               <div class="column">
                 <div class="content has-text-justified">
-                  <img src="./assets/project/slug/clip-0.png"
+                  <img src="./assets/project/slug/clip-0.svg"
                       class="interpolation-image"
                       alt="CLIP cosine similarity matrix."/>
                   <p>Fig.3: CLIP original image-text conine similarity matrix.</p>
@@ -299,7 +318,7 @@
 
               <div class="column">
                 <div class="content has-text-justified">
-                  <img src="./assets/project/slug/clip-1.png"
+                  <img src="./assets/project/slug/clip-1.svg"
                       class="interpolation-image"
                       alt="CLIP cosine similarity matrix."/>
                   <p>
@@ -310,7 +329,7 @@
 
               <div class="column">
                 <div class="content has-text-justified">
-                  <img src="./assets/project/slug/clip-2.png"
+                  <img src="./assets/project/slug/clip-2.svg"
                       class="interpolation-image"
                       alt="CLIP cosine similarity matrix."/>
                   <p>
@@ -331,7 +350,8 @@
                 class="interpolation-image"
                 alt="Stable Diffusion example: copyright."/>
             <br>
-            <p>Fig. 6: Unlearning copyright-protected intellectual property ("<i>Mickey Mouse</i>" and "<i>Iron Man</i>") from <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1"> Stable Diffusion-v2.1</a> model.</p>
+            <div class="columns is-centered has-text-centered">
+            <p>Fig. 6: Unlearning copyright-protected intellectual property ("<i>Mickey Mouse</i>" and "<i>Iron Man</i>") from <a href="https://huggingface.co/stabilityai/stable-diffusion-2-1"> Stable Diffusion-v2.1</a> model.</p></div>
             <p>
               After unlearning with SLUG, Stable Diffusion fails to generate images associated with the targeted copyright-protected figures, 
               while the overall image generation utility of the original model is largely preserved.
@@ -341,19 +361,17 @@
 
           <h3 class="title is-4">Examples on Vision-Language Models</h3>
           <div class="content has-text-justified">
-            <img src="./assets/project/slug/vlm-example-1.png"
+            <img src="./assets/project/slug/vlm-example-1.svg"
                 class="interpolation-image"
                 alt="Vision-Language Model."/>
-                <p>
-                  Fig. 7: Unlearning the celebrity example "<i>Elon Musk</i>" from <a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf"> LLaVA-v1.5-7B </a> model.
-                </p>                
+                <div class="columns is-centered has-text-centered">
+                <p>Fig. 7: Unlearning the celebrity example "<i>Elon Musk</i>" from <a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf"> LLaVA-v1.5-7B </a> model.</p></div>
             <br>
-            <img src="./assets/project/slug/vlm-example-2.png"
+            <img src="./assets/project/slug/vlm-example-2.svg"
                 class="interpolation-image"
                 alt="Vision-Language Model."/>
-                <p>
-                  Fig. 8: Unlearning the celebrity example  "<i>Taylor Swift</i>" from <a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf"> LLaVA-v1.5-7B </a> model.
-                </p>
+                <div class="columns is-centered has-text-centered">
+                  <p>Fig. 8: Unlearning the celebrity example  "<i>Taylor Swift</i>" from <a href="https://huggingface.co/llava-hf/llava-1.5-7b-hf"> LLaVA-v1.5-7B </a> model.</p></div>
             <p>
               While targeted identities are mapped to wrong name or gender after the unlearning, 
               the other celebrities identification remain unaffected. 
@@ -375,49 +393,39 @@
       </div>
     </div>
 </section>
+</div>
 
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title">BibTeX</h2>
-          <div class="content has-text-justified">
-            If you find our work helpful for your research, please consider citing us!
-          </div>
-        </div>
-    </div>
-  </div>  
-    <br>
-    <pre style="display: inline-block; text-align: left;"><code>
-      @inproceedings{
-        cai2025targeted,
-        title={Targeted Unlearning with Single Layer Unlearning Gradient},
-        author={Zikui Cai and Yaoteng Tan and M. Salman Asif},
-        booktitle={Forty-second International Conference on Machine Learning},
-        year={2025},
-        url={https://openreview.net/forum?id=6Ofb0cGXb5}
-      }
-    </code></pre>
+    <h2 class="title">BibTeX</h2>
+    <p>If you find our work helpful for your research, please consider citing us!</p>
+    <pre><code>@inproceedings{cai2025targeted,
+  author    = {Zikui Cai and Yaoteng Tan and M. Salman Asif},
+  title     = {Targeted Unlearning with Single Layer Unlearning Gradient},
+  booktitle = {Forty-second International Conference on Machine Learning},
+  year      = {2025},
+  url       = {https://openreview.net/forum?id=6Ofb0cGXb5}
+}</code></pre>
   </div>
 </section>
 
-
-<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-          <p>
-            Acknowlegement: web page template from <a
-            href="https://nerfies.github.io/">Park et al</a>.
-          </p>
+<div class="content" style="text-align:center;vertical-align:middle;">
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              Acknowlegement: web page template from <a
+              href="https://nerfies.github.io/">Park et al</a>.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </div>
+
 </body>
 </html>

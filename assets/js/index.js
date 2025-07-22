@@ -1,7 +1,7 @@
 window.HELP_IMPROVE_VIDEOJS = false;
 
 var INTERP_BASE = "./assets/project/stepsize/stacked";
-var NUM_INTERP_FRAMES = 32;
+var NUM_INTERP_FRAMES = 14;
 
 var interp_images = [];
 function preloadInterpolationImages() {
